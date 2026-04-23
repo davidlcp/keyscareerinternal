@@ -1,0 +1,1297 @@
+/* =======================================================
+   Tokens + Base
+======================================================= */
+
+:root {
+  --font: "Inter", Arial, Helvetica, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --text: #262626;
+  --muted: #555;
+  --bg: #fff;
+  --border: #c7c7c7;
+  --link: #e90029;
+
+  /* FIX: your variable was declared as --page-guter but used as --page-gutter */
+  --page-gutter: 1rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+/* =======================================================
+   Layout Containers
+======================================================= */
+
+.dtx_column_control_wrapper {
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .dtx_column_control_wrapper {
+    max-width: 91.67%;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .dtx_column_control_wrapper {
+    max-width: 1180px;
+  }
+}
+
+@media only screen and (min-width: 1680px) {
+  .dtx_column_control_wrapper {
+    max-width: 1400px;
+  }
+}
+
+/* Mirrors wrapper widths, but includes gutter padding */
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding-left: var(--page-gutter);
+  padding-right: var(--page-gutter);
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 91.67%;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .container {
+    max-width: 1180px;
+  }
+}
+
+@media only screen and (min-width: 1680px) {
+  .container {
+    max-width: 1400px;
+  }
+}
+
+/* =======================================================
+   Utilities
+======================================================= */
+
+.shadow-ks-shadow {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.job-card {
+  padding: 16px;
+  border-radius: 12px;
+  margin-top: 16px;
+  border: 1px solid #e9e9e9;
+}
+
+
+/* =======================================================
+   Header
+======================================================= */
+
+.ks-header {
+  height: 4rem;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.ks-header .dtx_column_control_wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.ks-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.ks-brand-logo {
+  width: 9.625rem;
+  height: auto;
+  display: block;
+}
+
+.ks-brand-divider {
+  width: 0.0725rem;
+  margin-right: 0.75rem;
+  height: 0.88rem;
+  background-color: #555;
+}
+
+.ks-careers-link {
+  font-size: 1.32rem;
+  font-weight: 600;
+  color: #000;
+  text-decoration: none;
+  line-height: 1;
+  margin-bottom: 0.04rem;
+}
+
+@media (max-width: 767px) {
+  .ks-header {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+
+  .ks-brand-logo {
+    width: 8.8rem;
+  }
+
+  .ks-careers-link {
+    font-size: 1.1rem;
+  }
+}
+
+/* =======================================================
+   Mobile Menu Button
+======================================================= */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 0rem;
+}
+
+.header-actions .ks-search-trigger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 40px;
+  min-width: 30px;
+  min-height: 40px;
+  padding: 0;
+  text-decoration: none;
+  color: #262626;
+  flex-shrink: 0;
+}
+
+
+.header-actions .ks-search-trigger .ks-nav-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+}
+
+/* tablet/mobile only */
+@media (max-width: 1120px) {
+  .header-actions .ks-search-trigger {
+    display: inline-flex;
+  }
+
+  .hamburger-wrapper {
+    display: flex;
+  }
+}
+
+/* desktop */
+@media (min-width: 1280px) {
+  .header-actions .ks-search-trigger {
+    display: none !important;
+  }
+
+  .hamburger-wrapper {
+    display: none !important;
+  }
+}
+
+/* hide both on desktop if search already exists in main nav */
+@media (min-width: 1120px) {
+
+  .ks-search-trigger,
+  .hamburger-wrapper {
+    display: none !important;
+  }
+}
+
+
+.hamburger-wrapper {
+  display: none;
+  align-items: center;
+  margin-left: 1.05rem;
+  flex-shrink: 0;
+}
+
+.menu-hamburger-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px solid #81919F;
+  border-radius: 9999px;
+  background: #fff;
+  color: #262626;
+  cursor: pointer;
+}
+
+.menu-hamburger-icon:focus-visible {
+  outline: 2px solid #262626;
+  outline-offset: 2px;
+}
+
+.menu-hamburger,
+.menu-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.menu-hamburger svg,
+.menu-close svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.menu-close {
+  display: none;
+}
+
+.menu-hamburger-icon.is-open .menu-hamburger {
+  display: none;
+}
+
+.menu-hamburger-icon.is-open .menu-close {
+  display: flex;
+}
+
+/* =======================================================
+   Screen Reader Only
+======================================================= */
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* =======================================================
+   Base Navigation
+======================================================= */
+
+.ks-nav {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.ks-nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Chevron */
+.ks-nav-chev {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #666666;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.ks-nav-chev-icon {
+  display: block;
+  transition: transform 180ms ease;
+  transform: rotate(0deg);
+}
+
+.ks-nav-chev-icon {
+  display: block;
+  transform: none;
+  transition: none;
+}
+
+.ks-nav-icon {
+  align-items: center;
+  vertical-align: middle;
+  line-height: 1;
+  display: inline-flex;
+  margin-bottom: 0.1rem;
+}
+
+.util-login {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 0.1rem;
+  margin-right: 0.33rem;
+}
+
+/* Link / Summary styling */
+.ks-nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 4rem;
+  padding: 0 1rem;
+  color: #262626;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.ks-nav-link:hover {
+  background: #f5f5f5;
+}
+
+.ks-nav-link:focus-visible {
+  outline: 0.125rem solid #111;
+  outline-offset: 0.125rem;
+}
+
+.ks-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0.24rem;
+  background: #e90029;
+  display: none;
+  pointer-events: none;
+}
+
+.ks-mega-details[open]>summary.ks-nav-link::after,
+.ks-dropdown-details[open]>summary.ks-nav-link::after {
+  display: block;
+}
+
+.ks-mega-details>summary,
+.ks-dropdown-summary {
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.ks-mega-details>summary *,
+.ks-dropdown-summary * {
+  cursor: pointer;
+}
+
+.ks-dropdown-summary::-webkit-details-marker {
+  display: none;
+}
+
+.ks-dropdown-summary::marker {
+  content: "";
+}
+
+/* =======================================================
+   Mobile / Tablet Nav
+   Full screen beneath header
+======================================================= */
+
+@media (max-width: 1120px) {
+  .hamburger-wrapper {
+    display: flex;
+  }
+
+  .ks-nav {
+    display: none;
+    position: fixed;
+    top: 4rem;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: calc(100dvh - 4rem);
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0.75rem 1rem 2rem;
+    box-sizing: border-box;
+    background: #fff;
+    border-top: 1px solid #e5e7eb;
+    box-shadow: none;
+    z-index: 190;
+  }
+
+  .ks-nav.is-open {
+    display: flex;
+  }
+
+  .ks-nav>a,
+  .ks-nav>details {
+    width: 100%;
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  .ks-nav-link,
+  .ks-dropdown-summary,
+  .ks-nav-link-locations {
+    width: 100%;
+    min-height: 3.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 0;
+    white-space: normal;
+    background: transparent;
+  }
+
+  .ks-nav-link:hover {
+    background: transparent;
+  }
+
+  .ks-dropdown-panel,
+  .ks-mega {
+    position: static !important;
+    inset: auto !important;
+    transform: none !important;
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    padding: 0.25rem 0 0.75rem;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .ks-mega-inner,
+  .ks-mega-inner-locations {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .ks-mega-inner>section,
+  .ks-mega-inner-locations>section {
+    padding: 0;
+  }
+
+  .ks-mega-inner>section+section::before,
+  .ks-mega-inner-locations>section+section::before {
+    display: none;
+  }
+
+  .ks-mega-list,
+  .ks-mega-list--2col-locations {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.22rem;
+    padding: 0.4rem 0;
+  }
+
+  .ks-mega-list a {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .ks-mega-footer {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+  }
+}
+
+/* =======================================================
+   Desktop Nav
+======================================================= */
+
+@media (min-width: 1120px) {
+
+  .hamburger-wrapper,
+  .menu-hamburger-icon {
+    display: none !important;
+  }
+
+  .ks-nav {
+    display: flex !important;
+    align-items: center;
+    position: relative;
+    width: auto;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    height: 100%;
+  }
+}
+
+
+/* =======================================================
+   Mega Panel
+======================================================= */
+
+.ks-mega {
+  position: fixed;
+  left: 50%;
+  top: 4rem;
+  transform: translateX(-50%);
+  z-index: 210;
+  width: 100%;
+  max-width: 91.67%;
+  background: #fff;
+  border: 0.0625rem solid #e9e9e9;
+  border-radius: 0 0 1.5rem 1.5rem;
+  padding: 2rem 2rem 1.2rem 2rem;
+  box-shadow:
+    0 0.75rem 2rem rgba(0, 0, 0, 0.12),
+    inset 0 1rem 1rem -0.375rem rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .ks-mega {
+    max-width: 91.67%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .ks-mega {
+    max-width: 1180px;
+  }
+}
+
+@media (min-width: 1680px) {
+  .ks-mega {
+    max-width: 1400px;
+  }
+}
+
+.ks-mega-details {
+  position: static;
+}
+
+.ks-mega-details[open] .ks-mega {
+  display: block;
+}
+
+.ks-nav-item--mega::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 0.75rem;
+}
+
+.ks-mega-inner {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  align-items: start;
+}
+
+.ks-mega-inner>section {
+  position: relative;
+  min-width: 0;
+  padding: 0 1.2rem;
+}
+
+.ks-mega-inner>section+section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 0.1rem;
+  background-color: #e9e9e9;
+  pointer-events: none;
+}
+
+.ks-mega-title {
+  margin: 0 0 0.33rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.2;
+}
+
+.ks-mega-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.55rem 0.2rem;
+  display: grid;
+  gap: 0.22rem;
+}
+
+.ks-mega-list a {
+  display: block;
+  width: 100%;
+  max-width: none;
+  padding: 0.62rem 0.75rem;
+  border-radius: 0.33rem;
+  text-decoration: none;
+  color: #111;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.ks-mega-list a:hover {
+  background: #f5f5f5;
+}
+
+/* Mega footer / CTA */
+.ks-mega-footer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 0.1rem solid #e9e9e9;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.ks-mega-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #111;
+  padding: 0.75rem;
+  border-radius: 0.33rem;
+}
+
+.ks-mega-cta-text {
+  padding-right: 0.66rem;
+}
+
+.ks-mega-cta-arrow {
+  transition: transform 90ms ease;
+  transform: translateX(0);
+  will-change: transform;
+}
+
+.ks-mega-cta:hover .ks-mega-cta-arrow,
+.ks-mega-cta:focus-visible .ks-mega-cta-arrow {
+  transform: translateX(0.18rem);
+}
+
+/* =======================================================
+   Locations Mega Menu
+======================================================= */
+
+.ks-mega-details-locations>summary {
+  cursor: pointer;
+}
+
+.ks-mega-details-locations>summary * {
+  cursor: pointer;
+}
+
+.ks-mega-inner-locations {
+  display: grid;
+  grid-template-columns: 20% 40% 20% 20%;
+  gap: 0;
+  align-items: stretch;
+}
+
+.ks-mega-inner-locations>section {
+  position: relative;
+  min-width: 0;
+  padding: 0 1.2rem;
+}
+
+.ks-mega-inner-locations>section+section::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 0.1rem;
+  background-color: #e9e9e9;
+  pointer-events: none;
+}
+
+.ks-mega-list--2col-locations {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 1rem;
+  row-gap: 0.2rem;
+}
+
+/* =======================================================
+   User Login / Smaller Dropdowns
+======================================================= */
+
+.ks-dropdown-details {
+  position: relative;
+}
+
+.ks-dropdown-panel {
+  position: absolute;
+  right: 0;
+  min-width: 20rem;
+  padding: 1.5rem 1.8rem 1.6rem 1.8rem;
+  background: #fff;
+  border: 0.0625rem solid #e9e9e9;
+  border-radius: 0 0 1.5rem 1.5rem;
+  box-shadow:
+    0 0.75rem 2rem rgba(0, 0, 0, 0.12),
+    inset 0 1rem 1rem -0.375rem rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  z-index: 210;
+}
+
+/* left-opening dropdown */
+.ks-dropdown-details--left .ks-dropdown-panel {
+  left: 0;
+  right: auto;
+  inset-inline-start: 0 !important;
+  inset-inline-end: auto !important;
+  transform: none !important;
+}
+
+.ks-dropdown-panel .ks-mega-cta {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  width: 100% !important;
+  box-sizing: border-box;
+}
+
+.ks-dropdown-panel .ks-mega-cta-text {
+  min-width: 0;
+}
+
+.ks-dropdown-panel .ks-mega-cta-arrow {
+  flex: 0 0 auto;
+  margin-left: 16px;
+  display: block;
+}
+
+/* =======================================================
+   Mobile / Tablet Fixes
+======================================================= */
+
+@media (max-width: 1120px) {
+
+  .ks-nav-link,
+  .ks-dropdown-summary,
+  .ks-nav-link-locations {
+    width: 100%;
+    min-height: 3.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    padding: 0.9rem 0;
+    white-space: normal;
+    background: transparent;
+    text-align: left;
+  }
+
+  .ks-nav-chev {
+    margin-left: auto;
+    flex: 0 0 auto;
+  }
+
+  .ks-nav-icon,
+  .util-login {
+    flex: 0 0 auto;
+    margin: 0;
+  }
+
+  /* critical reset for mega/dropdown panels on mobile */
+  .ks-mega,
+  .ks-dropdown-panel {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    inset: auto !important;
+    transform: none !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    padding: 0.5rem 0 1rem;
+    margin: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .ks-mega-inner,
+  .ks-mega-inner-locations {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.25rem;
+    width: 100%;
+  }
+
+  .ks-mega-inner>section,
+  .ks-mega-inner-locations>section {
+    width: 100%;
+    min-width: 0;
+    padding: 0 !important;
+  }
+
+  .ks-mega-inner>section+section::before,
+  .ks-mega-inner-locations>section+section::before {
+    display: none !important;
+  }
+
+  .ks-mega-title {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+  }
+
+  .ks-mega-list,
+  .ks-mega-list--2col-locations {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 0.15rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .ks-mega-list a,
+  .ks-mega-list--2col-locations a {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0;
+    border-radius: 0;
+    white-space: normal;
+    line-height: 1.35;
+    overflow-wrap: break-word;
+  }
+
+  .ks-mega-footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+
+  .ks-mega-cta {
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 1120px) {
+
+  .ks-nav>details,
+  .ks-mega-details,
+  .ks-dropdown-details,
+  .ks-nav-item,
+  .ks-nav-item--mega {
+    display: block !important;
+    width: 100%;
+  }
+
+  .ks-mega-details[open],
+  .ks-dropdown-details[open] {
+    display: block !important;
+  }
+
+  .ks-mega-details>summary,
+  .ks-dropdown-details>summary {
+    display: flex;
+    width: 100%;
+  }
+
+  .ks-mega,
+  .ks-dropdown-panel {
+    display: none;
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+
+  .ks-mega-details[open]>.ks-mega,
+  .ks-dropdown-details[open]>.ks-dropdown-panel {
+    display: block;
+  }
+}
+
+
+/* Desktop shows desktop layout */
+.ks-locations-desktop {
+  display: block;
+}
+
+.ks-locations-mobile {
+  display: none;
+}
+
+/* Mobile shows accordion layout */
+@media (max-width: 1119px) {
+  .ks-locations-desktop {
+    display: none;
+  }
+
+  .ks-locations-mobile {
+    display: block;
+    width: 100%;
+  }
+
+  .ks-region-group {
+    width: 100%;
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  .ks-region-summary {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.85rem 0;
+    font-weight: 600;
+    line-height: 1.3;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .ks-region-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .ks-region-summary::marker {
+    content: "";
+  }
+
+  .ks-region-summary .ks-nav-chev {
+    margin-left: auto;
+  }
+
+  .ks-region-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0.75rem 0.75rem;
+  }
+
+  .ks-region-list li {
+    margin: 0;
+  }
+
+  .ks-region-list a {
+    display: block;
+    padding: 0.45rem 0;
+    color: #111;
+    text-decoration: none;
+    line-height: 1.35;
+  }
+}
+
+/* Desktop locations grid */
+@media (min-width: 1120px) {
+  .ks-mega-inner-locations {
+    display: grid;
+    grid-template-columns: 20% 35% 25% 20%;
+    gap: 0;
+    align-items: stretch;
+  }
+
+  .ks-mega-inner-locations>section {
+    position: relative;
+    min-width: 0;
+    padding: 0 1.2rem;
+  }
+
+  .ks-mega-inner-locations>section+section::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 0.1rem;
+    background-color: #e9e9e9;
+    pointer-events: none;
+  }
+
+  .ks-mega-list--2col-locations {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1rem;
+    row-gap: 0.2rem;
+  }
+}
+
+
+
+/* =======================================================
+   Homepage Hero
+======================================================= */
+
+.ks-hero {
+  position: relative;
+  height: 37.5rem;
+  min-height: 520px;
+  overflow: hidden;
+}
+
+.ks-hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.ks-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom,
+      rgba(10, 10, 10, 0) 0%,
+      rgba(10, 10, 10, 0.55) 20%,
+      rgba(10, 10, 10, 0.77) 40%,
+      rgba(10, 10, 10, 0.88) 100%);
+}
+
+.ks-hero-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  padding-top: 22.2rem;
+  color: #fff;
+}
+
+.ks-hero-title {
+  font-size: 3rem;
+  max-width: 45rem;
+  font-weight: 500;
+  text-shadow: 0 0 3px rgba(21, 21, 21, 0.75);
+  line-height: 1.15;
+  margin: 0 0 1.5rem 0;
+}
+
+.ks-hero-subtitle {
+  font-size: 1.25rem;
+}
+
+.ks-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: 0.75rem 2rem;
+  margin-top: 0;
+  background: #e90029;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 0;
+  transition: transform 120ms ease, opacity 120ms ease;
+}
+
+.ks-hero-cta:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.ks-hero-cta:focus-visible {
+  outline: 0.1875rem solid rgba(228, 0, 43, 0.35);
+  outline-offset: 0.25rem;
+}
+
+/* =======================================================
+   Keysight Internal Careers Privacy Statement
+======================================================= */
+
+.ks-internal-privacy-statement {
+  border-top: 1px solid #ccc;
+  margin-top: 2rem;
+  width: 100%;
+  padding: 2.75rem 0rem 2.25rem 0rem;
+  overflow: hidden;
+  background-color: #e7e7e7;
+}
+
+.ks-internal-privacy-statement_title {
+  margin: 0 0 0.8rem 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.ks-internal-privacy-statement_paragraph {
+  margin: 0 0 1.25rem 0;
+  max-width: 60rem;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+
+/* =======================================================
+   Footer
+======================================================= */
+
+.ks-site-footer {
+  border-top: 1px solid #ccc;
+  background: #F1F2F4;
+  padding: 24px 0;
+  padding-bottom: 1.2rem;
+  color: #4D4D4D;
+}
+
+
+@media (max-width: 767px) {
+
+  .ks-site-footer {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+
+}
+
+.ks-footer-top.dtx_column_control_wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footer-note {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  line-height: 1.4;
+  font-size: 0.9rem;
+}
+
+.footer-note a {
+  color: #d0021b;
+  text-decoration: none;
+  display: inline;
+}
+
+.footer-note a:hover {
+  text-decoration: none;
+}
+
+.ks-footer-social {
+  padding-top: 0.5rem;
+  padding-right: 1rem;
+}
+
+.ks-footer-social__inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  white-space: nowrap;
+}
+
+.ks-footer-social__label {
+  font-weight: 500;
+  color: #262626;
+  margin-right: 1rem;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.ks-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.ks-social-icon {
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  filter: brightness(0) saturate(100%) invert(33%);
+}
+
+@media only screen and (max-width: 767px) {
+  .ks-footer-top.dtx_column_control_wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .ks-footer-social__inner {
+    justify-content: center;
+    flex-wrap: wrap;
+    white-space: normal;
+  }
+}
+
+.ks-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2px;
+  color: #4D4D4D;
+  font-size: 12px;
+  padding-top: 50px;
+  padding-bottom: 41.5px;
+}
+
+.ks-footer-links li+li::before {
+  content: "|";
+  color: #666666;
+  font-size: 0.875rem;
+  line-height: 0.7rem;
+  font-weight: 400;
+  margin: 0 0.55rem;
+}
+
+.ks-footer-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ks-footer-link:hover {
+  text-decoration: none;
+}
